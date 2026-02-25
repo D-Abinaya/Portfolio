@@ -1,0 +1,474 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Abinaya Damodaran | Portfolio</title>
+
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
+    />
+
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: "Poppins", sans-serif;
+      }
+      html {
+        scroll-behavior: smooth;
+      }
+
+      body {
+        background: linear-gradient(135deg, #0f172a, #1e3a8a);
+        color: #fff;
+        transition: 0.4s;
+      }
+      body.light {
+        background: #f4f4f4;
+        color: #111;
+      }
+
+      /* NAV */
+      nav {
+        position: fixed;
+        width: 100%;
+        padding: 20px 8%;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        background: rgba(0, 0, 0, 0.3);
+        backdrop-filter: blur(10px);
+        z-index: 1000;
+      }
+      nav ul {
+        display: flex;
+        gap: 25px;
+        list-style: none;
+      }
+      nav a {
+        text-decoration: none;
+        color: inherit;
+        font-weight: 500;
+        position: relative;
+      }
+      nav a::after {
+        content: "";
+        position: absolute;
+        width: 0%;
+        height: 2px;
+        left: 0;
+        bottom: -4px;
+        background: #00f2ff;
+        transition: 0.4s;
+      }
+      nav a:hover::after {
+        width: 100%;
+      }
+
+      .toggle-btn {
+        cursor: pointer;
+        padding: 6px 14px;
+        background: #00f2ff;
+        color: #000;
+        border-radius: 20px;
+        font-weight: 600;
+      }
+
+      /* SHINE HEADING */
+      .shine {
+        font-size: 38px;
+        background: linear-gradient(90deg, #00f2ff, #fff, #00f2ff);
+        background-size: 200% auto;
+        color: transparent;
+        -webkit-background-clip: text;
+        animation: shine 3s linear infinite;
+      }
+      @keyframes shine {
+        0% {
+          background-position: -200% center;
+        }
+        100% {
+          background-position: 200% center;
+        }
+      }
+
+      section {
+        padding: 80px 8%; /* reduced from 120px */
+        min-height: auto; /* remove full screen height */
+      }
+
+      /* HOME */
+      .home-container {
+        display: flex;
+        align-items: center;
+        gap: 40px;
+        flex-wrap: wrap;
+      }
+
+      /* PROFILE IMAGE */
+      .profile-pic {
+        width: 220px;
+        height: 220px;
+        border-radius: 50%;
+        object-fit: cover;
+        border: 4px solid #00f2ff;
+        box-shadow: 0 0 30px rgba(0, 242, 255, 0.6);
+        transition: 0.4s ease;
+        animation: float 4s ease-in-out infinite;
+      }
+      .profile-pic:hover {
+        transform: scale(1.08);
+        box-shadow: 0 0 45px rgba(0, 242, 255, 1);
+      }
+      @keyframes float {
+        0% {
+          transform: translateY(0px);
+        }
+        50% {
+          transform: translateY(-12px);
+        }
+        100% {
+          transform: translateY(0px);
+        }
+      }
+
+      /* GLASS */
+      .glass {
+        background: rgba(255, 255, 255, 0.08);
+        backdrop-filter: blur(12px);
+        padding: 25px;
+        border-radius: 20px;
+        transition: 0.4s;
+      }
+      .glass:hover {
+        transform: translateY(-8px);
+      }
+
+      /* GRID */
+      .grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        gap: 25px;
+      }
+
+      /* SKILLS */
+      .skill-logo {
+        width: 40px;
+        margin-bottom: 10px;
+      }
+      .progress {
+        height: 10px;
+        background: #333;
+        border-radius: 20px;
+        overflow: hidden;
+        margin-top: 10px;
+      }
+      .progress-bar {
+        height: 10px;
+        background: #00f2ff;
+        width: 0%;
+        transition: 1.5s;
+      }
+
+      /* SOFT SKILL BOX */
+      .soft-box {
+        background: rgba(255, 255, 255, 0.08);
+        padding: 25px;
+        border-radius: 20px;
+        text-align: center;
+        transition: 0.4s;
+        cursor: pointer;
+      }
+      .soft-box:hover {
+        transform: translateY(-10px) scale(1.05);
+        box-shadow: 0 0 25px #00f2ff;
+      }
+
+      /* WORK BG */
+      .cookies-bg {
+        background: url("https://images.unsplash.com/photo-1603532648955-039310d9ed75")
+          center/cover no-repeat;
+        border-radius: 20px;
+        padding: 25px;
+        position: relative;
+      }
+      .cookies-bg::before {
+        content: "";
+        position: absolute;
+        inset: 0;
+        background: rgba(0, 0, 0, 0.6);
+        border-radius: 20px;
+      }
+      .cookies-bg p {
+        position: relative;
+      }
+
+      /* PROJECT BG */
+      .project-bg {
+        background: url("https://images.unsplash.com/photo-1550751827-4bd374c3f58b")
+          center/cover no-repeat;
+        padding: 60px;
+        border-radius: 20px;
+        position: relative;
+      }
+      .project-bg::before {
+        content: "";
+        position: absolute;
+        inset: 0;
+        background: rgba(0, 0, 0, 0.7);
+        border-radius: 20px;
+      }
+      .project-bg div {
+        position: relative;
+      }
+
+      /* CONTACT */
+      .contact-icons a {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        text-decoration: none;
+        color: inherit;
+        margin-bottom: 15px;
+        font-size: 18px;
+        transition: 0.3s;
+      }
+      .contact-icons a:hover {
+        transform: translateX(8px);
+        color: #00f2ff;
+      }
+      .contact-icons i {
+        font-size: 22px;
+        color: #00f2ff;
+      }
+
+      /* CHATBOT */
+      .chatbot {
+        position: fixed;
+        bottom: 20px;
+        right: 20px;
+        width: 300px;
+        background: #111;
+        padding: 15px;
+        border-radius: 15px;
+      }
+      .chatbot input {
+        width: 100%;
+        padding: 8px;
+        border: none;
+        border-radius: 10px;
+        margin-top: 10px;
+      }
+
+      @media (max-width: 768px) {
+        .home-container {
+          flex-direction: column;
+          text-align: center;
+        }
+      }
+    </style>
+  </head>
+
+  <body>
+    <nav>
+      <h3>Abinaya</h3>
+      <ul>
+        <li><a href="#home">Home</a></li>
+        <li><a href="#skills">Skills</a></li>
+        <li><a href="#work">Internship</a></li>
+        <li><a href="#projects">Projects</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+      <div class="toggle-btn" onclick="toggleMode()">Light/Dark</div>
+    </nav>
+
+    <!-- HOME -->
+    <section id="home">
+      <div class="home-container">
+        <img src="Abinaya.jpg.jpeg" class="profile-pic" />
+        <div>
+          <h1 class="shine">Hello, I'm Abinaya</h1>
+          <h2 id="typing"></h2>
+          <p>
+            Aspiring Java Developer with strong fundamentals in backend
+            development and web technologies.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- SKILLS -->
+    <section id="skills">
+      <h2 class="shine">Technical Skills</h2>
+      <div class="grid">
+        <div class="glass">
+          <img
+            src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/java/java-original.svg"
+            class="skill-logo"
+          />
+          <h3>Java</h3>
+          <p>OOPS, Collections, Exception Handling, JDBC</p>
+          <div class="progress">
+            <div class="progress-bar" data-width="90%"></div>
+          </div>
+        </div>
+
+        <div class="glass">
+          <img
+            src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mysql/mysql-original.svg"
+            class="skill-logo"
+          />
+          <h3>SQL</h3>
+          <p>Joins, Queries, Constraints</p>
+          <div class="progress">
+            <div class="progress-bar" data-width="85%"></div>
+          </div>
+        </div>
+
+        <div class="glass">
+          <img
+            src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-original.svg"
+            class="skill-logo"
+          />
+          <h3>HTML</h3>
+          <p>Semantic Tags, Forms, SEO Basics</p>
+          <div class="progress">
+            <div class="progress-bar" data-width="95%"></div>
+          </div>
+        </div>
+
+        <div class="glass">
+          <img
+            src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/css3/css3-original.svg"
+            class="skill-logo"
+          />
+          <h3>CSS</h3>
+          <p>Flexbox, Grid, Responsive Design</p>
+          <div class="progress">
+            <div class="progress-bar" data-width="90%"></div>
+          </div>
+        </div>
+      </div>
+
+      <br /><br />
+      <h2 class="shine">Soft Skills</h2>
+      <div class="grid">
+        <div class="soft-box">Teamwork</div>
+        <div class="soft-box">Punctuality</div>
+        <div class="soft-box">Time Management</div>
+      </div>
+    </section>
+
+    <!-- WORK -->
+    <section id="work">
+      <h2 class="shine">Internship</h2>
+      <div class="glass">
+        <h3>Full Stack Web Development Intern</h3>
+        <p><strong>Ideal Formatic Institute of Technology</strong></p>
+        <p>June 2025 – July 2025</p>
+      </div>
+      <br />
+      <div class="cookies-bg">
+        <p>
+          Developed a responsive online store using HTML, CSS, JavaScript, and
+          MongoDB Implemented product listing, cart, checkout, and admin
+          features Designed user-friendly layout and responsive pages.
+        </p>
+      </div>
+    </section>
+
+    <!-- PROJECT -->
+    <section id="projects">
+      <h2 class="shine">Project</h2>
+      <div class="project-bg">
+        <div>
+          <h3>Real-Time Phishing Detection System</h3>
+          <p>
+            Built a browser-based tool using Python and Machine Learning
+            Implemented URL analysis to detect phishing websites Added real-time
+            alert system and live monitoring extension.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- CONTACT -->
+    <section id="contact">
+      <h2 class="shine">Contact</h2>
+      <div class="glass contact-icons">
+        <a href="mailto:damodaranabnaya0@gmail.com"
+          ><i class="fas fa-envelope"></i>Email</a
+        >
+        <a href="https://github.com/Abinaya-Damodaran" target="_blank"
+          ><i class="fab fa-github"></i>GitHub</a
+        >
+        <a href="https://www.linkedin.com/in/abinaya-damodaran/" target="_blank"
+          ><i class="fab fa-linkedin"></i>LinkedIn</a
+        >
+      </div>
+    </section>
+
+    <!-- CHATBOT -->
+    <div class="chatbot">
+      <strong>AI Assistant</strong>
+      <div id="chat-output" style="margin-top: 10px; font-size: 14px"></div>
+      <input
+        type="text"
+        id="chat-input"
+        placeholder="Ask about skills or projects..."
+      />
+    </div>
+
+    <script>
+      const text = "Java Developer";
+      let i = 0;
+      function typing() {
+        if (i < text.length) {
+          document.getElementById("typing").innerHTML += text.charAt(i);
+          i++;
+          setTimeout(typing, 70);
+        }
+      }
+      typing();
+
+      window.addEventListener("scroll", () => {
+        document.querySelectorAll(".progress-bar").forEach((bar) => {
+          if (bar.getBoundingClientRect().top < window.innerHeight) {
+            bar.style.width = bar.dataset.width;
+          }
+        });
+      });
+
+      function toggleMode() {
+        document.body.classList.toggle("light");
+      }
+
+      document
+        .getElementById("chat-input")
+        .addEventListener("keypress", function (e) {
+          if (e.key === "Enter") {
+            let input = this.value.toLowerCase();
+            let output = document.getElementById("chat-output");
+            if (input.includes("skill")) {
+              output.innerHTML =
+                "Technical Skills: Java, SQL, HTML, CSS. Soft Skills: Teamwork, Punctuality, Time Management.";
+            } else if (input.includes("project")) {
+              output.innerHTML =
+                "Project: Real-Time Phishing Detection System using Python & Machine Learning.";
+            } else {
+              output.innerHTML =
+                "👉 I can only answer about Skills and Projects.";
+            }
+            this.value = "";
+          }
+        });
+    </script>
+  </body>
+</html>
